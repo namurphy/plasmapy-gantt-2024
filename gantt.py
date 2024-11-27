@@ -56,8 +56,8 @@ def main() -> None:
         assign("Thomson 1", "2025-07-01", "2026-06-30", "UCLA"),
         assign("Thomson 2", "2026-07-01", "2027-06-30", "UCLA"),
         assign("Shadowgraphy", "2027-07-01", "2028-06-30", "UCLA"),
-        assign("I", "2028-07-01", "2029-06-30", "UCLA"),
-        assign("J", "2029-07-01", "2030-06-30", "UCLA"),
+        assign("Langmuir", "2028-07-01", "2029-06-30", "UCLA"),
+        assign("LIF", "2029-07-01", "2030-06-30", "UCLA"),
 
         assign("select students", "2025-12-01", "2025-12-30", "CRANE"),
         assign("CRANE seminar", "2026-01-01", "2026-05-25", "CRANE"),
