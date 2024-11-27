@@ -85,7 +85,10 @@ def main() -> None:
 
     fig = px.timeline(df, x_start="Start", x_end="Finish", y="Task", color="Resource")
     fig.update_yaxes(autorange="reversed")
-    fig.show()
+#    fig.show()
+    fig.write_image("gantt.png")
+
+    print(dir(fig))
 
 if __name__ == "__main__":
     main()
