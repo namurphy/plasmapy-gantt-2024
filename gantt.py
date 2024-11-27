@@ -38,19 +38,16 @@ def main() -> None:
         assign("hold summer school", "2028-06-21", "2028-06-30", "all"),
         assign("hold summer school", "2030-06-21", "2030-06-30", "all"),
 
-#        assign("journal article", "2026-04-01", finish="2026-06-15", resource="all"),
-#        assign("journal article", "2029-04-01", finish="2029-06-15", resource="all"),
-
         assign("metadata standards", *year1, "Murphy"),
         assign("PyHC interoperability", "2026-07-01", "2028-06-30", "Murphy"),
-        assign("metadata standards", "2028-07-01", "2029-07-30", "Murphy"),
+        assign("metadata standards", "2028-07-01", "2030-06-30", "Murphy"),
         assign("metadata standards", "2029-07-01", "2030-07-30", "Murphy"),
 
         assign("distribution functions", *year1, "postbac/predoc"),
         assign("magnetic topology", *year2, "postbac/predoc"),
         assign("dispersion solver", *year3, "postbac/predoc"),
-        assign("TBD", "2028-07-01", "2029-06-30", "postbac/predoc"),
-        assign("turbulence/shocks", "2029-07-01", "2030-06-30", "postbac/predoc"),
+        assign("TBD", *year4, "postbac/predoc"),
+        assign("turbulence/shocks", *year5, "postbac/predoc"),
 
         # UCLA
 
@@ -67,14 +64,6 @@ def main() -> None:
 
         assign("particle energy spectrometers", *year5, "UCLA"), # hedp
         assign("probes", *year5, "UCLA"), # fun
-
-#         assign("TBD", "2026-07-01", "2027-06-30", "UCLA"), # fun
-#        assign("Shadowgraphy", "2027-07-01", "2028-06-30", "UCLA"), # hedp
-
-#        assign("Langmuir", "2028-07-01", "2029-06-30", "UCLA"), # fun
-
-#        assign("particle spectrometers", "2029-07-01", "2030-06-30", "UCLA"),  # hed
-#        assign("LIF", "2029-07-01", "2030-06-30", "UCLA"),  # fun
 
         assign("select students", "2025-12-01", "2025-12-30", "CRANE"),
         assign("CRANE seminar", "2026-01-01", "2026-05-25", "CRANE"),
