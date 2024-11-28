@@ -30,18 +30,22 @@ def main() -> None:
     year5 = ("2029-07-01", "2030-06-30")
 
     df = pd.DataFrame([
-        assign("plan summer school", "2026-03-01", "2026-06-20", "Schaffner"),
-        assign("plan summer school", "2028-03-01", "2028-06-20", "Schaffner"),
-        assign("plan summer school", "2030-03-01", "2030-06-20", "Schaffner"),
+
+        assign("package infrastructure", "2025-07-01", "2030-06-30", "Murphy")
+
+        assign("metadata standards", *year1, "Murphy"),
+        assign("PyHC interoperability", "2026-07-01", "2028-06-30", "Murphy"),
+        assign("metadata standards", "2028-07-01", "2030-06-30", "Murphy"),
+#        assign("metadata standards", "2029-07-01", "2030-07-30", "Murphy"),
+
+        assign("plan summer school", "2026-03-01", "2026-06-20", "BMC"),
+        assign("plan summer school", "2028-03-01", "2028-06-20", "BMC"),
+        assign("plan summer school", "2030-03-01", "2030-06-20", "BMC"),
 
         assign("hold summer school", "2026-06-21", "2026-06-30", "all"),
         assign("hold summer school", "2028-06-21", "2028-06-30", "all"),
         assign("hold summer school", "2030-06-21", "2030-06-30", "all"),
 
-        assign("metadata standards", *year1, "Murphy"),
-        assign("PyHC interoperability", "2026-07-01", "2028-06-30", "Murphy"),
-        assign("metadata standards", "2028-07-01", "2030-06-30", "Murphy"),
-        assign("metadata standards", "2029-07-01", "2030-07-30", "Murphy"),
 
         assign("distribution functions", *year1, "postbac/predoc"),
         assign("magnetic topology", *year2, "postbac/predoc"),
