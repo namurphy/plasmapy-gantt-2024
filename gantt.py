@@ -29,59 +29,58 @@ def main() -> None:
     year4 = ("2028-07-01", "2029-06-30")
     year5 = ("2029-07-01", "2030-06-30")
 
+    years = [year1, year2, year3, year4, year5]
+    full = (year1[0], year5[1])
+
+    sao_postbac = [
+        "distribution",
+        "dispersion solver",
+        "turbulence analysis",
+        "equilibrium/stability",
+        "magnetic topology",
+#        "shock analysis",
+    ]
+
+    sao_tasks = []
+    for year, sao_postbac in zip(years, sao_postbac):
+        sao_tasks.append(assign(sao_postbac, *year, "SAO postbac/predoc"))
+
     df = pd.DataFrame([
 
-        assign("package infrastructure", "2025-07-01", "2030-06-30", "Murphy")
+        assign("package infrastructure", *full, "Murphy"),
 
-        assign("metadata standards", *year1, "Murphy"),
-        assign("PyHC interoperability", "2026-07-01", "2028-06-30", "Murphy"),
-        assign("metadata standards", "2028-07-01", "2030-06-30", "Murphy"),
-#        assign("metadata standards", "2029-07-01", "2030-07-30", "Murphy"),
+        assign("NEI/fiasco", *year1,"Murphy"),
+        #assign("Plasma-MDS/openPMD", *year1, "Murphy"),
+        assign("PyHC interoperability", *year2, "Murphy"),
+        assign("metadata standards", "2027-07-01", "2030-06-30", "Murphy"),
 
-        assign("plan summer school", "2026-03-01", "2026-06-20", "BMC"),
-        assign("plan summer school", "2028-03-01", "2028-06-20", "BMC"),
-        assign("plan summer school", "2030-03-01", "2030-06-20", "BMC"),
-
-        assign("hold summer school", "2026-06-21", "2026-06-30", "all"),
-        assign("hold summer school", "2028-06-21", "2028-06-30", "all"),
-        assign("hold summer school", "2030-06-21", "2030-06-30", "all"),
-
-
-        assign("distribution functions", *year1, "postbac/predoc"),
-        assign("magnetic topology", *year2, "postbac/predoc"),
-        assign("dispersion solver", *year3, "postbac/predoc"),
-        assign("TBD", *year4, "postbac/predoc"),
-        assign("turbulence/shocks", *year5, "postbac/predoc"),
+        *sao_tasks,
 
         # UCLA
 
-        assign("Thomson scattering", *year1, "UCLA"), # hedp + fun
+        assign("Thomson scattering", *year1, "UCLA"),  # hedp + fun
+        assign("CPR reconstruction", *year2, "UCLA"),  # hedp
+        assign("shadowgraphy/refractometry", *year3, "UCLA"), # hepd
+        assign("LIF", *year4, "UCLA"), # fun
+        assign("particle spectrometers", *year5, "UCLA"),  # hedp
 
-        assign("Shadowgraphy", *year2, "UCLA"), # hepd
-        assign("magnetic probes", *year2, "UCLA"), # fun
+        assign("plasma diagnostics", *full, "Everson"),  # fun
 
-        assign("Refractometry", *year3, "UCLA"), # hedp
-        assign("LIF", *year3, "UCLA"), # fun
+        assign("organize summer school", "2026-03-01", "2026-06-30", "BMC"),
+        assign("organize summer school", "2028-03-01", "2028-06-30", "BMC"),
+        assign("organize summer school", "2030-03-01", "2030-06-30", "BMC"),
 
-        assign("CPR reconstruction", *year4, "UCLA"), # hedp
-        assign("probes", *year4, "UCLA"), # fun
-
-        assign("particle energy spectrometers", *year5, "UCLA"), # hedp
-        assign("probes", *year5, "UCLA"), # fun
-
-        assign("select students", "2025-12-01", "2025-12-30", "CRANE"),
-        assign("CRANE seminar", "2026-01-01", "2026-05-25", "CRANE"),
-        assign("select students", "2026-12-01", "2026-12-30", "CRANE"),
-        assign("CRANE seminar", "2027-01-01", "2027-05-25", "CRANE"),
+        assign("CRANE planning", "2025-11-01", "2025-12-30", "CRANE"),
+        assign("CRANE semester", "2026-01-01", "2026-05-25", "CRANE"),
+        assign("CRANE planning", "2026-11-01", "2026-12-30", "CRANE"),
+        assign("CRANE semester", "2027-01-01", "2027-05-25", "CRANE"),
 
     ])
 
     fig = px.timeline(df, x_start="Start", x_end="Finish", y="Task", color="Resource")
     fig.update_yaxes(autorange="reversed")
-#    fig.show()
+    fig.show()
     fig.write_image("gantt.png")
-
-    print(dir(fig))
 
 if __name__ == "__main__":
     main()
